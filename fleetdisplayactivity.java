@@ -11,13 +11,13 @@ import java.util.ArrayList;
 
 public class fleetdisplayactivity extends AppCompatActivity {
     //potentially make 3 and use cases to dictate which one gets sent with intent on main activity
-    ArrayList<ss1_personel> ss1Personels =new ArrayList<ss1_personel>();
+    //ArrayList<ss> ss1Personels =new ArrayList<ss1_personel>();
     int[] personelimages1 = {R.drawable.kirk,R.drawable.spock,R.drawable.mccoy,R.drawable.scott,R.drawable.chapel,R.drawable.uhura,R.drawable.chekov};
 
 
     private void setupSS1(){
         String[] personnelNames = getResources().getStringArray(R.array.Starship1_crew.txt);
-        String[] stats = new String[]{ss1Personels.get(i).getCrewMember().toString()};
+        String[] stats = new String[]{.get(i).getCrewMember().toString()};
 
 
 

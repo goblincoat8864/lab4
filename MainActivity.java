@@ -14,9 +14,10 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
     private static final String stars1 = "USS_Enterprise_NCC1701";
 
+
     private void luanchActivity(Starship star){
     Intent i = new Intent(this,Starship.class);
-    i.putExtra(stars1,star.getName());
+    i.putExtra(stars1,star.getRegistry());
 }
     @Override
     protected void onCreate(Bundle savedInstanceState) {

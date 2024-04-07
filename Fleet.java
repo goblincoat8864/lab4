@@ -1,9 +1,15 @@
 package utsa.cs3443.yvz641_lab4;
 
+import android.content.Context;
+import android.content.res.AssetManager;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Fleet {
-    private String name;
+    private final String name;
     private ArrayList<Starship> starships;
 
     public Fleet(String name) {
@@ -15,17 +21,17 @@ public class Fleet {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  //  public void setName(String name) {
+       // this.name = name;
+   // }
 
-    public int getSizeOfFleet() {
-        return starships.size();
-    }
+    //public int getSizeOfFleet() {
+      //  return starships.size();
+   // }
 
-    public void addStarship(Starship starship) {
-        starships.add(starship);
-    }
+   // public void addStarship(Starship starship) {
+      //  starships.add(starship);
+   // }
 
     @Override
     public String toString() {
@@ -37,28 +43,31 @@ public class Fleet {
         }
         return sb.toString();
     }
+    //Starship starship = new Starship(String name, String registry, String classOfShip );
+    public void loadStarships(String registry, Context context) throws Exception {
+       //load starships the same as crew memebr
+        AssetManager manager = context.getAssets();
 
-    public void loadStarships(String directory) throws Exception {
-        // Implementation to load starships from files in the given directory
+        Scanner scan = null;
+        String filename="fleet.csv";
+        try {
+            InputStream file= manager.open(filename);
+            scan=new Scanner(file);
+            String line ="";
+            String[]tokens;
+            boolean bool;
+            while(scan.hasNextLine()){
+                line= scan.nextLine();
+                tokens = line.split(",");
 
-        // This method should read files, create Starship objects, and add them to the fleet
+                    starships.add(new Starship(tokens[0], tokens[1], tokens[2], tokens[3]));
 
-        // For simplicity, let's assume the file contains the necessary information for a Starship
+                scan.close();
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
-        // This method needs to handle IOException
-
-        // Here's a basic example (implementation may vary based on file format):
-
-        // File reading logic can be similar to this:
-
-        // File folder = new File(directory);
-
-        // File[] files = folder.listFiles();
-
-        // for (File file : files) {
-        //     // Read file and create Starship object
-        //     // Add Starship object to the fleet using addStarship method
-        // }
 
         throw new Exception("Method not implemented");
     }

@@ -1,6 +1,13 @@
 package utsa.cs3443.yvz641_lab4;
 
+import android.content.Context;
+import android.content.res.AssetManager;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Starship {
     private String name;
@@ -8,12 +15,36 @@ public class Starship {
     private String classOfShip;
     private ArrayList<CrewMember> crewMembers;
 
-    public Starship(){
-        this.name=name;
-        this.registry= registry;
-        this.classOfShip=classOfShip;
-        this.crewMembers= new ArrayList<>();
+
+
+
+    public void LoadCrewMembers(String Registry, Context context )throws FileNotFoundException {
+
+        AssetManager manager = context.getAssets();
+
+        Scanner scan = null;
+        String filename="personnel.csv";
+        try {
+            InputStream file= manager.open(filename);
+            scan=new Scanner(file);
+            String line ="";
+            String[]tokens;
+            boolean bool;
+            while(scan.hasNextLine()){
+                line= scan.nextLine();
+                tokens = line.split(",");
+                if (tokens[3]==this.registry) {
+                    crewMembers.add(new CrewMember(tokens[0], tokens[1], tokens[2], tokens[3], tokens[4], tokens[5]));
+                }
+                scan.close();
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
+
+
 
     public String getName() {
         return name;
@@ -39,7 +70,13 @@ public class Starship {
         this.classOfShip = classOfShip;
     }
 
+public Starship(String name, String registry, String classOfShip, String crewMembers ){
+    this.name=name;
+    this.registry= registry;
+    this.classOfShip=classOfShip;
+    this.crewMembers= new ArrayList<>();
 
+}
 
     public void setCrewMembers(CrewMember crewMember) {
         crewMembers.add(crewMember);
@@ -48,10 +85,7 @@ public class Starship {
         return crewMembers.size();
     }
 
-    Starship a = new Starship(){
-        a.name = USS_Enterpise_NCC1701-A;
 
-    }
 
     @Override
     public String toString(){
