@@ -48,6 +48,11 @@ public class Starship {
         return crewMembers.size();
     }
 
+    Starship a = new Starship(){
+        a.name = USS_Enterpise_NCC1701-A;
+
+    }
+
     @Override
     public String toString(){
         StringBuilder n = new StringBuilder();
