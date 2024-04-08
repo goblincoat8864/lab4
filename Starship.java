@@ -70,7 +70,7 @@ public class Starship {
         this.classOfShip = classOfShip;
     }
 
-public Starship(String name, String registry, String classOfShip, String crewMembers ){
+public Starship(String name, String registry, String classOfShip, String crewMembers){
     this.name=name;
     this.registry= registry;
     this.classOfShip=classOfShip;
@@ -78,25 +78,25 @@ public Starship(String name, String registry, String classOfShip, String crewMem
 
 }
 
-    public void setCrewMembers(CrewMember crewMember) {
-        crewMembers.add(crewMember);
-    }
-    public int GetCrewSize(){
-        return crewMembers.size();
+   // public void setCrewMembers(CrewMember crewMember) {
+    //    crewMembers.add(crewMember);
+   // }
+    ///public int GetCrewSize(){
+//return crewMembers.size();
     }
 
 //L
 
-    @Override
-    public String toString(){
-        StringBuilder n = new StringBuilder();
-        n.append("Starship: ").append(name).append("\n");
-        n.append("Registry: ").append(registry).append("\n");
-        n.append("Class: ").append(classOfShip).append("\n");
-        n.append("Crew Members:\n");
-        for (CrewMember crewMember : crewMembers){
-            n.append("- ").append(crewMember.toString()).append("\n");
-        }
-        return n.toString();
-    }
-}
+    //@Override
+   // public String toString(){
+    //    StringBuilder n = new StringBuilder();
+    //    n.append("Starship: ").append(name).append("\n");
+    //    n.append("Registry: ").append(registry).append("\n");
+   //     n.append("Class: ").append(classOfShip).append("\n");
+   //     n.append("Crew Members:\n");
+   //     for (CrewMember crewMember : crewMembers){
+    //        n.append("- ").append(crewMember.toString()).append("\n");
+    //    }
+    //    return n.toString();
+  //  }
+//}

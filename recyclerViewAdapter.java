@@ -13,7 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class recyclerViewAdapter extends RecyclerView.Adapter<recyclerViewAdapter.MyViewHolder> {
-Context context;
+private Context context;
+private ArrayList<CrewMember> crewMembers;
+private res
 ArrayList<ss1_personel> ss1Personels;
     public recyclerViewAdapter(Context context, ArrayList<ss1_personel> ss1Personels){
         this.context=context;
