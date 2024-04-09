@@ -10,12 +10,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Starship {
-    private String name;
-    private String registry;
-    private String classOfShip;
-    private ArrayList<CrewMember> crewMembers;
+    public String name;
+    public String registry;
+    public String classOfShip;
 
+    public ArrayList<CrewMember> crewMembers;
 
+    public Starship() {
+
+    }
 
 
     public void LoadCrewMembers(String Registry, Context context )throws FileNotFoundException {
@@ -33,14 +36,15 @@ public class Starship {
             while(scan.hasNextLine()){
                 line= scan.nextLine();
                 tokens = line.split(",");
-                if (tokens[3]==this.registry) {
-                    crewMembers.add(new CrewMember(tokens[0], tokens[1], tokens[2], tokens[3], tokens[4], tokens[5]));
+                if (tokens[1]==this.registry) {
+                    crewMembers.add(new CrewMember(tokens[0]));
                 }
                 scan.close();
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
 
     }
 
@@ -70,7 +74,7 @@ public class Starship {
         this.classOfShip = classOfShip;
     }
 
-public Starship(String name, String registry, String classOfShip, String crewMembers){
+public Starship(String name, String registry, String classOfShip, ArrayList<CrewMember> crewMembers){
     this.name=name;
     this.registry= registry;
     this.classOfShip=classOfShip;

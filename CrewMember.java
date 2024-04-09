@@ -1,13 +1,5 @@
 package utsa.cs3443.yvz641_lab4;
 
-import android.content.Context;
-import android.content.res.AssetManager;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Scanner;
-
 public class CrewMember {
     private String name;
     private String position;
@@ -42,7 +34,7 @@ public class CrewMember {
      //   return image;
   //  }
 
-    public CrewMember(String name, String position, String rank, String species, String assignment,String image){
+    public CrewMember(String name){
 this.name= name;
 this.position= position;
 this.rank= rank;

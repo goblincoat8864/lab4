@@ -1,5 +1,6 @@
 package utsa.cs3443.yvz641_lab4;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.AssetManager;
 
@@ -44,6 +45,7 @@ public class Fleet {
         return sb.toString();
     }
     //Starship starship = new Starship(String name, String registry, String classOfShip );
+    @SuppressLint("SuspiciousIndentation")
     public void loadStarships(String registry, Context context) throws Exception {
        //load starships the same as crew memebr
         AssetManager manager = context.getAssets();

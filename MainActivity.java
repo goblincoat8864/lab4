@@ -11,36 +11,38 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
-    private static final String stars1 = "USS_Enterprise_NCC1701";
+    private static String stars1 = "USS_Enterprise_NCC1701";
 
 
-    private void luanchActivity(Starship star){
+    private void luanchActivity(Starship Star){
     Intent i = new Intent(this,Starship.class);
-    i.putExtra(stars1,star.getRegistry());
+    i.putExtra(stars1,Star.getRegistry());
+    startActivity(i);
 }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
 
-            Button ss1 = (Button)findViewById(R.id.button1);
 
+            Button ss1 = findViewById(R.id.button1);
             ss1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                Starship starship1 = new Starship();
+                starship1.setRegistry("USS_Enterprise_NCC1701");
+                    luanchActivity(starship1);
                 }
+
             });
 
-            Button ss2 = (Button)findViewById(R.id.button2);
+            Button ss2 = findViewById(R.id.button2);
 
 
-        });
+
+        }
     }
-}
